@@ -1,0 +1,55 @@
+{
+  "period": "2020-03-05 to 2026-06-26",
+  "years": 6.3,
+  "n_stocks": 80,
+  "model": {
+    "total%": 521.203,
+    "CAGR%": 33.583,
+    "vol%": 21.525,
+    "Sharpe": 1.459,
+    "Sortino": 1.882,
+    "maxDD%": -27.722,
+    "calmar": 1.211
+  },
+  "benchmark": {
+    "total%": 274.401,
+    "CAGR%": 23.279,
+    "vol%": 14.018,
+    "Sharpe": 1.57,
+    "Sortino": 1.767,
+    "maxDD%": -25.8,
+    "calmar": 0.902
+  },
+  "ic_mean": 0.0308,
+  "ic_folds_positive": 8,
+  "ic_folds_total": 12,
+  "ic_vs_momentum": 0.0574,
+  "ic_vs_momentum_t": 2.62,
+  "dsr": 19.69,
+  "n_trials": 14,
+  "skew": -0.503,
+  "kurtosis": 9.963,
+  "beta_chosen": 2,
+  "ablations": [
+    {
+      "name": "End-to-end (Sharpe loss)",
+      "result": "Sharpe 1.75 \u2192 1.30, IC 0.11 \u2192 0.02",
+      "verdict": "rejected"
+    },
+    {
+      "name": "End-to-end (blended loss)",
+      "result": "Sharpe 1.75 \u2192 1.67, IC 0.11 \u2192 0.08",
+      "verdict": "rejected"
+    },
+    {
+      "name": "Checkpoint on IC vs NLL",
+      "result": "+0.005 IC, paired t = 0.17",
+      "verdict": "no difference"
+    },
+    {
+      "name": "Remove \u03b2-VAE regime input",
+      "result": "\u22120.002 IC across 3 folds",
+      "verdict": "no contribution"
+    }
+  ]
+}
